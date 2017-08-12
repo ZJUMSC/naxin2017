@@ -6,6 +6,11 @@
   "author": "David Yu",
   "license": "MIT",
   "dependencies": {
-    "koa": "^2.3.0"
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0",
+    "koa": "^2.3.0",
+    "sequelize": "^4.4.3"
   }
 }
