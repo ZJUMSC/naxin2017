@@ -1,0 +1,8 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend api of msc naxin 2017 website.",
+  "main": "index.js",
+  "author": "David Yu",
+  "license": "MIT"
+}
