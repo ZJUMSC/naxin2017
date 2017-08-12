@@ -4,5 +4,8 @@
   "description": "backend api of msc naxin 2017 website.",
   "main": "index.js",
   "author": "David Yu",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.3.0"
+  }
 }
