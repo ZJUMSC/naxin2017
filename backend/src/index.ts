@@ -1,4 +1,5 @@
-import { Koa } from 'koa';
+import * as Koa from 'koa';
+import * as http from 'http';
 
 const app = new Koa();
 
