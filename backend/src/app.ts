@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
-import * as http from 'http';
+import * as Sequelize from 'sequelize';
 
 import { admin } from './config';
 
