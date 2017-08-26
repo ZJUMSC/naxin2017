@@ -7,7 +7,7 @@ module.exports = {
     },
     devServer: {
         contentBase: __dirname + '/build',
-        historyApiFallback: true,
+        //historyApiFallback: true,
         inline: true
     },
     module: {
