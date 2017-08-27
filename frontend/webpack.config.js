@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     devtool: "cheap-module-source-map",
     entry: __dirname + '/src/index.ts',
@@ -20,5 +22,8 @@ module.exports = {
                 exclude: /node_modules/
             }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin()
+    ]
 }
