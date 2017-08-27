@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
+import Sheet from './sheet';
 
 class App extends Component<any, any> {
     render() {
@@ -9,6 +10,6 @@ class App extends Component<any, any> {
             </div>
         );
     }
-}
+};
 
 export default App;
