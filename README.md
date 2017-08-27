@@ -8,4 +8,6 @@
 
 ### ~FLAG: FINISH IT IN NEXT WEEK~
 
-![]()
+* remove frontend/node_modules/@types/core-js
+
+![](https://i.imgur.com/vKv5bn5.png)
