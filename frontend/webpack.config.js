@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const tsImportPluginFactory = require('ts-import-plugin');
 
 module.exports = {
     devtool: "cheap-module-source-map",
@@ -13,16 +14,45 @@ module.exports = {
         inline: true
     },
     resolve: {
-        extensions: ['.ts', '.js', '.tsx', '.jsx']
+        extensions: ['.ts', '.js', '.tsx', '.jsx', '.css']
     },
     module: {
         rules: [
             {
-                test: /(\.jsx|\.tsx|\.ts)$/,
+                test: /(\.tsx|\.ts)$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                    },
+                    {
+                        loader: 'ts-loader',
+                        // options: {
+                        //     getCustomTransformers: () => ({
+                        //         before: [tsImportPluginFactory({ libraryName: "antd", style: "css" }), tsImportPluginFactory({ libraryName: "antd"})]
+                        //     })
+                        // }
+                    },
+                ],
+                exclude: /node_modules/
+            },
+            {
+                test: /(\.jsx|\.js)$/,
                 use: {
-                    loader: 'ts-loader'
+                    loader: 'babel-loader'
                 },
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    require.resolve('style-loader'),
+                    {
+                        loader: require.resolve('css-loader'),
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                ]
             }
         ]
     },
