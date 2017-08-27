@@ -27,6 +27,10 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            inject: true,
+            title: 'MSC@ZJU naxin 2017',
+            template: 'public/index.html'
+        })
     ]
 }
