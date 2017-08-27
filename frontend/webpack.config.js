@@ -12,6 +12,9 @@ module.exports = {
         //historyApiFallback: true,
         inline: true
     },
+    resolve: {
+        extensions: ['.ts', '.js', '.tsx', '.jsx']
+    },
     module: {
         rules: [
             {

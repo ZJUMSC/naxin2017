@@ -3,8 +3,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 class UserProperty {
-    name: string;
-    id: string;
+    studentName: string;
+    studentId: string;
 }
 
 class SheetStatus {
