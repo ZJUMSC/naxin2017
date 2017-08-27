@@ -1,1 +1,0 @@
-# Information on naxin2017
