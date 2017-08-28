@@ -10,6 +10,7 @@ class LoginPanel extends Component<any, UserProperty> {
         return <div>
             <Layout>
                 <Form>
+                    <div>Login</div>
                     <Input prefix={<Icon type="user" style={{ fontSize: 20 }} />} placeholder="Username" />
                 </Form>
             </Layout>

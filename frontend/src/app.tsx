@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { Layout, Button, message } from 'antd';
 
 import Sheet from './sheet';
@@ -20,8 +20,13 @@ class App extends Component {
                         </div>
                     </Header>
                     <Content>
-                        <Sheet studentName="testName" studentId="testId" />
-                        <LoginPanel />
+                        <Router>
+                            <Switch>
+                                <Route exact path="/" component={Sheet} />
+                                <Route path="/login" component={LoginPanel} />
+                                <Route path="/sheet" render={() => <Sheet studentId="test31501" studentName="lalala" />} />
+                            </Switch>
+                        </Router>
                     </Content>
                     <Footer>
                         <h4>MSC@ZJU 2017</h4>
