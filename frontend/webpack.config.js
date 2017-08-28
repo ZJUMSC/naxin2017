@@ -28,19 +28,19 @@ module.exports = {
                         loader: 'ts-loader',
                         // options: {
                         //     getCustomTransformers: () => ({
-                        //         before: [tsImportPluginFactory({ libraryName: "antd", style: "css" }), tsImportPluginFactory({ libraryName: "antd"})]
+                        //         before: [tsImportPluginFactory({ libraryName: "antd", style: "css" })]
                         //     })
                         // }
                     },
                 ],
-                exclude: /node_modules/
+                //exclude: /node_modules/
             },
             {
                 test: /(\.jsx|\.js)$/,
                 use: {
                     loader: 'babel-loader'
                 },
-                exclude: /node_modules/
+                //exclude: /node_modules/
             },
             {
                 test: /\.css$/,
