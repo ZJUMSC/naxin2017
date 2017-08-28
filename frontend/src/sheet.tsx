@@ -31,7 +31,7 @@ class SheetState {
     data: SheetData;
 }
 
-class Sheet extends Component<UserProperty, SheetState> {
+class Sheet extends Component<any, SheetState> {
     render() {
         return (
             <div>

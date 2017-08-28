@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { Layout, Button, Form, Input, Icon } from 'antd';
 
-import { UserProperty } from './sheet';
-
-class LoginPanel extends Component<any, UserProperty> {
+class LoginPanel extends Component {
     render() {
         return <div>
             <Layout>
                 <Form>
                     <div>Login</div>
-                    <Input prefix={<Icon type="user" style={{ fontSize: 20 }} />} placeholder="Username" />
+                    <Button type="primary" onClick={() => <Redirect to="/form" />}>进入报名</Button>
                 </Form>
             </Layout>
         </div>;
