@@ -22,7 +22,25 @@ module.exports = {
                 test: /(\.tsx|\.ts)$/,
                 use: [
                     {
-                        loader: 'babel-loader',
+                        loader: 'babel-loader?cacheDirectory',
+                        options:
+                        {
+                            "presets": [
+                                "react",
+                                "env"
+                            ],
+                            "plugins": [
+                                [
+                                    "babel-plugin-import",
+                                    {
+                                        "libraryName": "antd",
+                                        "libraryDirectory": "lib",
+                                        "style": "css"
+                                    }
+                                ]
+                            ]
+                        }
+
                     },
                     {
                         loader: 'ts-loader',

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-class UserProperty {
+export class UserProperty {
     studentName: string;
     studentId: string;
 }

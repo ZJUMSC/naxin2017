@@ -16,7 +16,15 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-router@^4.0.15":
+"@types/react-router-dom@^4.0.7":
+  version "4.0.7"
+  resolved "http://registry.npm.taobao.org/@types/react-router-dom/download/@types/react-router-dom-4.0.7.tgz#65b192f7a5dbd1c05a8d04cc5863c9775705a435"
+  dependencies:
+    "@types/history" "*"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router@*", "@types/react-router@^4.0.15":
   version "4.0.15"
   resolved "http://registry.npm.taobao.org/@types/react-router/download/@types/react-router-4.0.15.tgz#be8aaefc20afd968a5dbcffcf09060e6c2e8746e"
   dependencies:

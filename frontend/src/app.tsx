@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { Component } from 'react';
-import antd from 'antd';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Layout, Button, message } from 'antd';
-import Sheet from './sheet';
 
-const Header = Layout.Header;
-const Content = Layout.Content;
-const Footer = Layout.Footer;
-const Sider = Layout.Sider;
+import Sheet from './sheet';
+import LoginPanel from './login';
+
+const { Header, Content, Footer, Sider } = Layout;
 
 class App extends Component {
 
@@ -16,14 +15,16 @@ class App extends Component {
             <div>
                 <Layout>
                     <Header>
-                        <h2>Frontend Root Component</h2>
+                        <div>
+                            <h1 style={{ color: "#aaf" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
+                        </div>
                     </Header>
                     <Content>
                         <Sheet studentName="testName" studentId="testId" />
-                        <Button type="primary">antd button</Button>
+                        <LoginPanel />
                     </Content>
                     <Footer>
-                        <h5>MSC@ZJU 2017</h5>
+                        <h4>MSC@ZJU 2017</h4>
                     </Footer>
                 </Layout>
             </div>
