@@ -9,7 +9,7 @@ const { Content } = Layout;
 
 class HomePanel extends Component {
     render() {
-        return <div>
+        return <div className="form-panel">
             <Layout style={{ minHeight: "100%" }}>
                 <Content style={{ background: "#fff", minHeight: "100%" }}>
                     <Row type="flex" justify="center">
@@ -20,7 +20,8 @@ class HomePanel extends Component {
                                     <li>社团与纳新相关问题可以咨询本页面中的机器人聊天窗口</li>
                                     <li>纳新咨询可加入QQ群 <b>667813936</b></li>
                                     <li>报名相关问题及时与我们联系 yzyDavid@qq.com 或 QQ 1729462839</li>
-                                    <li></li>
+                                    <li>建议使用电脑填写报名表</li>
+                                    <li><br/><br/></li>
                                 </ul>
                                 <Row type="flex" justify="center" style={{ verticalAlign: "bottom" }}>
                                     <Link to="/form"><Button type="primary" size="large" icon="edit" style={{ margin: "20px" }}>进入报名</Button></Link>

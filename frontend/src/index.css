@@ -1,5 +1,4 @@
 @import '~antd/dist/antd.css';
-
 body {
   margin: 0;
   padding: 0;
@@ -14,4 +13,13 @@ li {
 .white {
   border: 2px gray;
   min-height: 300px;
+}
+
+.form-panel {
+  padding: 24px;
+  background: #fbfbfb;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  margin: 0 10%;
+  min-width: 70%;
 }
