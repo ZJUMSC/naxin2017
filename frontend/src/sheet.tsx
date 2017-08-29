@@ -48,7 +48,6 @@ class Sheet extends Component<any, SheetState> {
                 <Layout>
                     <Content style={{ minHeight: "300px", background: "#fff" }}>
                         <Form>
-                            <div>Sheet</div>
                         </Form>
                     </Content>
                 </Layout>

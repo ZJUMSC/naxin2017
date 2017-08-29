@@ -29,7 +29,8 @@ class App extends Component {
                         </Router>
                     </Content>
                     <Footer style={{ textAlign: "center" }}>
-                        <p>浙江大学 微软学生俱乐部 &copy; 2017 All Rights Reserved</p>
+                        <p>&copy; 浙江大学 微软学生俱乐部</p>
+                        <p>2017 All Rights Reserved</p>
                     </Footer>
                 </Layout>
             </div>

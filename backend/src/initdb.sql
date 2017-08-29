@@ -11,7 +11,7 @@ CREATE TABLE photo(
     id char(10) NOT NULL,
     name char(20) NOT NULL,
     photo text
-)
+);
 
 CREATE TABLE submit(
     _id PRIMARY KEY NOT NULL AUTO_INCREMENT,
