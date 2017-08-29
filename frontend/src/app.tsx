@@ -14,12 +14,12 @@ class App extends Component {
         return (
             <div>
                 <Layout>
-                    <Header>
+                    <Header style={{ width: "100%" }}>
                         <div>
                             <h1 style={{ color: "#88f" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
                         </div>
                     </Header>
-                    <Content>
+                    <Content style={{ padding: "0 50px", minHeight: "300px" }}>
                         <Router>
                             <Switch>
                                 <Route exact path="/" render={() => <Redirect to="/home" />} />
@@ -28,7 +28,7 @@ class App extends Component {
                             </Switch>
                         </Router>
                     </Content>
-                    <Footer>
+                    <Footer style={{ textAlign: "center" }}>
                         <p>浙江大学 微软学生俱乐部 &copy; 2017 All Rights Reserved</p>
                     </Footer>
                 </Layout>

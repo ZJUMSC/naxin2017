@@ -4,6 +4,8 @@ import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Layout, Button, Form, Input, Icon } from 'antd';
 
+const { Content } = Layout;
+
 export class UserProperty {
     studentName: string;
     studentId: string;
@@ -44,11 +46,11 @@ class Sheet extends Component<any, SheetState> {
         return (
             <div>
                 <Layout>
-                    <Form>
-                        <div>Sheet</div>
-                        <div>{this.props.studentId}</div>
-                        <div>{this.props.studentName}</div>
-                    </Form>
+                    <Content style={{ minHeight: "300px", background: "#fff" }}>
+                        <Form>
+                            <div>Sheet</div>
+                        </Form>
+                    </Content>
                 </Layout>
             </div>
         );
