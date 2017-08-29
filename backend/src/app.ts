@@ -3,7 +3,9 @@ import * as Router from 'koa-router';
 import * as bodyParser from 'koa-bodyparser';
 import * as Sequelize from 'sequelize';
 
-import { admin } from './config';
+const cors = require('koa2-cors');
+
+import { admin, port } from './config';
 
 class ResBody {
     success: boolean;
@@ -42,6 +44,8 @@ app.use(async (ctx, next) => {
     await next();
 })
 
+app.use(cors());
+
 app.use(bodyParser());
 
 app.use(router.routes());
@@ -52,5 +56,5 @@ app.use(async (ctx, next) => {
     await next();
 });
 
-app.listen(3000);
-console.log('listening at port 3000 ...')
+app.listen(port);
+console.log('listening at port ' + port + ' ...');

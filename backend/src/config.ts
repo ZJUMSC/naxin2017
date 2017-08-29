@@ -2,7 +2,7 @@
  * config of app
  */
 
-const port: number = 3000;
+const port: number = 8082;
 
 const mysql = {
     username: "root",

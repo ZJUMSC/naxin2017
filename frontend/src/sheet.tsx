@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, Icon, Row, Col } from 'antd';
+import { Layout, Button, Form, Input, Icon, Row, Col, message } from 'antd';
 
 const { Content } = Layout;
 const FormItem = Form.Item;
@@ -47,15 +47,25 @@ interface FormProps {
 }
 
 class SignUpForm extends Component<FormProps, any> {
+    loadLocalStorage = () => {
+        console.log('load');
+        const { setFieldsValue } = this.props.form;
+    }
+    saveLocalStorage = () => {
+        console.log('save');
+    }
     handleSubmit = (e: any) => {
         e.preventDefault();
+        this.saveLocalStorage();
         this.props.form.validateFieldsAndScroll((err: any, values: SheetData) => {
             if (!err) {
                 console.log(values);
+                message.success('提交成功！');
             } else {
                 console.log('error!');
                 console.log(err);
                 console.log(values);
+                message.error('填写不正确，请按照提示修改');
             }
         })
     }
@@ -131,14 +141,6 @@ class Sheet extends Component<any, SheetState> {
                 <WrappedForm />
             </div>
         );
-    }
-
-    loadLocalStorage() {
-
-    }
-
-    saveLocalStorage() {
-
     }
 }
 
