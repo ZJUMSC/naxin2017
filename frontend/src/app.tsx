@@ -16,7 +16,7 @@ class App extends Component {
                 <Layout>
                     <Header style={{ width: "100%" }}>
                         <div>
-                            <h1 style={{ color: "#88f" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
+                            <h1 style={{ color: "#fff" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
                         </div>
                     </Header>
                     <Content style={{ padding: "0 50px", minHeight: "300px" }}>

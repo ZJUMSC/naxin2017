@@ -6,7 +6,12 @@ body {
   font-family: sans-serif;
 }
 
+li {
+  font-size: 16px;
+  justify-content: center;
+}
+
 .white {
-  background: #aaa;
+  border: 2px gray;
   min-height: 300px;
 }

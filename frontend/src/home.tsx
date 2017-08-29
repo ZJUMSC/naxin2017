@@ -10,21 +10,27 @@ const { Content } = Layout;
 class HomePanel extends Component {
     render() {
         return <div>
-            <Layout>
-                <Content style={{ background: "#fff", minHeight: "300px" }}>
-                    <Form>
-                        <Row type="flex" justify="center">
-                            <Col span={14} className="white" style={{ margin: "20px" }}>
-
-                            </Col>
-                            <Col span={8} className="white" style={{ margin: "20px" }}>
-                            <h2></h2>
-                            </Col>
-                        </Row>
-                        <Row type="flex" justify="center">
-                            <Link to="/form"><Button type="primary" size="large" icon="edit" style={{margin: "20px"}}>进入报名</Button></Link>
-                        </Row>
-                    </Form>
+            <Layout style={{ minHeight: "100%" }}>
+                <Content style={{ background: "#fff", minHeight: "100%" }}>
+                    <Row type="flex" justify="center">
+                        <Col span={8} className="white" style={{ margin: "20px", minWidth: "300px" }}>
+                            <div style={{ margin: "20px" }}>
+                                <h2>欢迎加入微软俱乐部！</h2>
+                                <ul>
+                                    <li>社团与纳新相关问题可以咨询本页面中的机器人聊天窗口</li>
+                                    <li>纳新咨询可加入QQ群 <b>667813936</b></li>
+                                    <li>报名相关问题及时与我们联系 yzyDavid@qq.com 或 QQ 1729462839</li>
+                                    <li></li>
+                                </ul>
+                                <Row type="flex" justify="center" style={{ verticalAlign: "bottom" }}>
+                                    <Link to="/form"><Button type="primary" size="large" icon="edit" style={{ margin: "20px" }}>进入报名</Button></Link>
+                                </Row>
+                            </div>
+                        </Col>
+                        <Col className="white" style={{ margin: "20px" }}>
+                            <iframe seamless style={{ justifyContent: "center", minHeight: "525px" }} src='https://webchat.botframework.com/embed/zjumsc?s=1mkx6UasV00.cwA.PEc.pojbesy-x_xNKagb3QxxrNIbANGadrd-zyKYT_4plsE'></iframe>
+                        </Col>
+                    </Row>
                 </Content>
             </Layout>
         </div>;

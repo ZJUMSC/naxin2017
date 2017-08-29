@@ -2,9 +2,9 @@
 
 ## Description
 - Both frontend and backend base on JavaScript tech stack.
-- Use TypeScript.
-- Backend use koa.js
-- Frontend use React / React-Router / antd
+- Used TypeScript.
+- Used koa.js / Sequelize for backend.
+- Used React / React-Router / antd for frontend.
 
 ### ~FLAG: FINISH IT IN NEXT WEEK~
 

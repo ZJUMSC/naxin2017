@@ -20,3 +20,5 @@
 1mkx6UasV00.cwA.uuY.AYCntUcfh4rVfsb1s71G3-5NluxMov5eMzWdhDmu7wM
 <iframe src='https://webchat.botframework.com/embed/zjumsc?s=YOUR_SECRET_HERE'></iframe>
 
+<iframe src='https://webchat.botframework.com/embed/zjumsc?s=1mkx6UasV00.cwA.PEc.pojbesy-x_xNKagb3QxxrNIbANGadrd-zyKYT_4plsE'></iframe>
+
