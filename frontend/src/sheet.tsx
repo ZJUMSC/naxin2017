@@ -24,6 +24,14 @@ class SheetData {
     OG: boolean;
 
     gender: boolean;
+    age: number;
+    grade: number;
+    campus: number;
+    major: string;
+    tel: string;
+    email: string;
+    qq: string;
+    description: string;
 }
 
 class SheetState {
@@ -38,7 +46,6 @@ class Sheet extends Component<any, SheetState> {
                 <Layout>
                     <Form>
                         <div>Sheet</div>
-                        <Link to="/login">login</Link>
                         <div>{this.props.studentId}</div>
                         <div>{this.props.studentName}</div>
                     </Form>

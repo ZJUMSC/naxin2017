@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Layout, Button, Form, Input, Icon } from 'antd';
 
@@ -10,7 +10,7 @@ class LoginPanel extends Component {
             <Layout>
                 <Form>
                     <div>Login</div>
-                    <Button type="primary" onClick={() => <Redirect to="/form" />}>进入报名</Button>
+                    <Link to="/form"><Button type="primary">进入报名</Button></Link>
                 </Form>
             </Layout>
         </div>;
