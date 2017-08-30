@@ -46,6 +46,10 @@ interface FormProps {
     form: any;
 }
 
+const submit = (data: SheetData) => {
+
+}
+
 class SignUpForm extends Component<FormProps, any> {
     loadLocalStorage = () => {
         console.log('load');

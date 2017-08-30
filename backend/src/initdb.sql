@@ -7,14 +7,14 @@ CREATE DATABASE naxin2017;
 USE naxin2017;
 
 CREATE TABLE photo(
-    _id PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    _id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     id char(10) NOT NULL,
     name char(20) NOT NULL,
     photo text
 );
 
 CREATE TABLE submit(
-    _id PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    _id int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     id char(10) NOT NULL,
     name varchar(20) NOT NULL,
     TG boolean,

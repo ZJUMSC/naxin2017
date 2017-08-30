@@ -5,6 +5,7 @@
 const port: number = 8082;
 
 const mysql = {
+    databaseName: "naxin2017",
     username: "root",
     password: "",
 }

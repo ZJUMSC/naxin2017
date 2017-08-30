@@ -5,9 +5,15 @@ import * as Sequelize from 'sequelize';
 
 const cors = require('koa2-cors');
 
-import { admin, port } from './config';
+import { admin, port, mysql } from './config';
 
-class ResBody {
+const db = new Sequelize(mysql.databaseName, mysql.username, mysql.password);
+
+interface ResBody {
+    success: boolean;
+}
+
+class AllResBody implements ResBody {
     success: boolean;
     body: any;
 }
@@ -24,10 +30,10 @@ router.post('/all', async (ctx, next) => {
     const name = ctx.request.body.username || '';
     const pass = ctx.request.body.password || '';
 
-    let res = new ResBody();
+    let res = new AllResBody();
     if (name === admin.username && pass === admin.password) {
         res.success = true;
-        res.body = '';
+        res.body = 'not implemented';
     } else {
         res.success = false;
         res.body = 'authorization failed';
