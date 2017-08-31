@@ -131,7 +131,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { required: true, message: "请输入姓名" }
                                 ]
                             })(
-                                <Input />
+                                <Input prefix={<Icon type="user" style={{fontSize: 13}} />} />
                                 )
                         }
                     </FormItem>
@@ -143,7 +143,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
                                 ]
                             })(
-                                <Input />
+                                <Input prefix={<Icon type="contacts" style={{fontSize: 13}} />} />
                                 )
                         }
                     </FormItem>
@@ -274,7 +274,7 @@ class SignUpForm extends Component<FormProps, any> {
                     </FormItem>
 
                     <FormItem {...tailFormItemLayout}>
-                        <Button type="primary" htmlType="submit">提交</Button>
+                        <Button icon="copy" type="primary" htmlType="submit">提交</Button>
                     </FormItem>
                 </Form>
             </div>

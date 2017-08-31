@@ -7,6 +7,27 @@ import './index.css';
 
 const description: string = 'MSC@ZJU 2017 natsu naxin frontend SPA';
 
+const ad = `
+若你在控制台输出中看到这句话，请在自我介绍当中高声喊出 El Psy Congroo!
+说出这句暗号，我们就能得知，你就是我们要找的人ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ
+`;
+
+const ascii = String.raw`
+
+      ___           ___           ___           ___                      ___     
+     /\  \         /\__\         /\__\         /\__\        ___         /\  \    
+    |::\  \       /:/ _/_       /:/  /        /::|  |      /\__\        \:\  \   
+    |:|:\  \     /:/ /\  \     /:/  /        /:/:|  |     /:/__/         \:\  \  
+  __|:|\:\  \   /:/ /::\  \   /:/  /  ___   /:/|:|  |__  /::\  \     ___  \:\  \ 
+ /::::|_\:\__\ /:/_/:/\:\__\ /:/__/  /\__\ /:/ |:| /\__\ \/\:\  \   /\  \  \:\__\
+ \:\~~\  \/__/ \:\/:/ /:/  / \:\  \ /:/  / \/__|:|/:/  /  ~~\:\  \  \:\  \ /:/  /
+  \:\  \        \::/ /:/  /   \:\  /:/  /      |:/:/  /      \:\__\  \:\  /:/  / 
+   \:\  \        \/_/:/  /     \:\/:/  /       |::/  /       /:/  /   \:\/:/  /  
+    \:\__\         /:/  /       \::/  /        |:/  /       /:/  /     \::/  /   
+     \/__/         \/__/         \/__/         |/__/        \/__/       \/__/    
+
+`;
+
 const ping = () => fetch(config.apiBaseUrl + 'hello', {
     method: 'GET'
 }).then(res => console.log(res)).catch(err => console.log(err));
@@ -15,4 +36,5 @@ const ping = () => fetch(config.apiBaseUrl + 'hello', {
 ReactDOM.render(<App />, document.getElementById('root'));
 
 console.log(description);
-ping();
+console.log(ascii);
+console.log(ad);
