@@ -31,10 +31,10 @@ const submitTable = db.define('submit', {
     CG: Sequelize.BOOLEAN,
     PG: Sequelize.BOOLEAN,
     OG: Sequelize.BOOLEAN,
-    gender: Sequelize.BOOLEAN,
+    gender: Sequelize.STRING(10),
     age: Sequelize.INTEGER,
-    grade: Sequelize.INTEGER,
-    campus: Sequelize.INTEGER,
+    grade: Sequelize.STRING(50),
+    campus: Sequelize.STRING(50),
     major: Sequelize.STRING(50),
     tel: Sequelize.STRING(20),
     email: Sequelize.STRING(50),
@@ -107,9 +107,9 @@ router.post('/submit', async (ctx, next) => {
     }
 
     if (body.genderText === 'male') {
-        body.gender = false;
+        body.gender = '男';
     } else if (body.genderText === 'female') {
-        body.gender = true;
+        body.gender = '女';
     } else {
         success = false;
     }
