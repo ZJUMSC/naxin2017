@@ -9,6 +9,29 @@ import { admin, port, mysql } from './config';
 
 const db = new Sequelize(mysql.databaseName, mysql.username, mysql.password);
 
+const submitTable = db.define('submit', {
+    _id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    id: Sequelize.CHAR(10),
+    name: Sequelize.STRING(20),
+    TG: Sequelize.BOOLEAN,
+    CG: Sequelize.BOOLEAN,
+    PG: Sequelize.BOOLEAN,
+    OG: Sequelize.BOOLEAN,
+    gender: Sequelize.BOOLEAN,
+    age: Sequelize.INTEGER,
+    grade: Sequelize.INTEGER,
+    campus: Sequelize.INTEGER,
+    major: Sequelize.STRING(50),
+    tel: Sequelize.STRING(20),
+    email: Sequelize.STRING(50),
+    qq: Sequelize.STRING(15),
+    description: Sequelize.TEXT
+});
+
 interface ResBody {
     success: boolean;
 }
