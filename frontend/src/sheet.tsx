@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, Select, Radio, Icon, Row, Col, message } from 'antd';
+import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
@@ -167,6 +167,18 @@ class SignUpForm extends Component<FormProps, any> {
                                 )
                         }
                     </FormItem>
+                    <FormItem label="年龄" {...formItemLayout}>
+                        {
+                            getFieldDecorator('age', {
+                                rules: [
+                                    { required: true, message: "请输入年龄" }
+                                ]
+                            })(
+                                <InputNumber min={1} max={100} />
+                                )
+                        }
+                    </FormItem>
+
                     <FormItem {...tailFormItemLayout}>
                         <Button type="primary" htmlType="submit">提交</Button>
                     </FormItem>
