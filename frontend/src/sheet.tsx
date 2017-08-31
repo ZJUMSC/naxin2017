@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, Icon, Row, Col, message } from 'antd';
+import { Layout, Button, Form, Input, Select, Icon, Row, Col, message } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
@@ -74,9 +74,10 @@ class SignUpForm extends Component<FormProps, any> {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(values)
-                }).then( res => {;
+                }).then(res => {
+                    ;
                     message.success('提交成功！');
-                }).catch( err => {
+                }).catch(err => {
                     message.error('提交失败，可能为网络原因。无法解决的话请马上联系我们ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ');
                 });
             } else {
@@ -101,16 +102,16 @@ class SignUpForm extends Component<FormProps, any> {
         };
         const tailFormItemLayout = {
             wrapperCol: {
-              xs: {
-                span: 24,
-                offset: 0,
-              },
-              sm: {
-                span: 14,
-                offset: 6,
-              },
+                xs: {
+                    span: 24,
+                    offset: 0,
+                },
+                sm: {
+                    span: 14,
+                    offset: 6,
+                },
             },
-          };
+        };
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
@@ -133,11 +134,27 @@ class SignUpForm extends Component<FormProps, any> {
                                 ]
                             })(
                                 <Input />
-                            )
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="Group" {...formItemLayout}>
+                        {
+                            getFieldDecorator('group', {
+                                rules: [
+                                    { required: true, message: "请选择至少一个Group" }
+                                ]
+                            })(
+                                <Select mode="multiple">
+                                    <Select.Option value="TG">TG</Select.Option>
+                                    <Select.Option value="CG">CG</Select.Option>
+                                    <Select.Option value="PG">PG</Select.Option>
+                                    <Select.Option value="OG">OG</Select.Option>
+                                </Select>
+                                )
                         }
                     </FormItem>
                     <FormItem {...tailFormItemLayout}>
-                        <Button type="primary" htmlType="submit">提交</Button>                        
+                        <Button type="primary" htmlType="submit">提交</Button>
                     </FormItem>
                 </Form>
             </div>

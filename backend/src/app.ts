@@ -89,6 +89,19 @@ router.post('/submit', async (ctx, next) => {
     const body = ctx.request.body;
     console.log(body);
 
+    if (body.group.some((v: any) => v === "TG")) {
+        body.TG = true;
+    }
+    if (body.group.some((v: any) => v === "CG")) {
+        body.CG = true;
+    }
+    if (body.group.some((v: any) => v === "PG")) {
+        body.PG = true;
+    }
+    if (body.group.some((v: any) => v === "OG")) {
+        body.OG = true;
+    }
+
     await submitTable.create(body);
 
     const res = new SubmitResBody();
