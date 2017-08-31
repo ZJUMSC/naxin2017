@@ -8,6 +8,11 @@ import { apiBaseUrl } from './config';
 const { Content } = Layout;
 const FormItem = Form.Item;
 
+const gradeOptions = ['大一', '大二', '大三', '大四', '研究生', '博士生', '其他'];
+const campusOptions = ['紫金港', '玉泉', '西溪', '华家池', '之江', '其他'];
+
+const toSelectOption = (v: string) => <Select.Option value={v} key={v}>{v}</Select.Option>;
+
 export class UserProperty {
     studentName: string;
     studentId: string;
@@ -175,6 +180,36 @@ class SignUpForm extends Component<FormProps, any> {
                                 ]
                             })(
                                 <InputNumber min={1} max={100} />
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="年级" {...formItemLayout}>
+                        {
+                            getFieldDecorator('grade', {
+                                rules: [
+                                    { required: true, message: "请选择年级" }
+                                ]
+                            })(
+                                <Select>
+                                    {
+                                        gradeOptions.map(toSelectOption)
+                                    }
+                                </Select>
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="校区" {...formItemLayout}>
+                        {
+                            getFieldDecorator('campus', {
+                                rules: [
+                                    { required: true, message: "请选择校区" }
+                                ]
+                            })(
+                                <Select>
+                                    {
+                                        campusOptions.map(toSelectOption)
+                                    }
+                                </Select>
                                 )
                         }
                     </FormItem>
