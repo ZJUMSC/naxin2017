@@ -41,7 +41,8 @@ const submitTable = db.define('submit', {
     qq: Sequelize.STRING(15),
     description: Sequelize.TEXT
 }, {
-    timestamps: false
+    timestamps: false,
+    tableName: 'submit'
 });
 
 interface ResBody {
@@ -88,6 +89,8 @@ router.post('/submit', async (ctx, next) => {
     const body = ctx.request.body;
     console.log(body);
 
+    await submitTable.create(body);
+
     const res = new SubmitResBody();
     res.success = true;
     ctx.status = 200;
@@ -101,7 +104,16 @@ app.use(async (ctx, next) => {
     await next();
 })
 
-app.use(cors());
+app.use(cors({
+    origin: (ctx: any) => {
+            return "*";
+    },
+    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+    maxAge: 5,
+    credentials: true,
+    allowMethods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
 
 app.use(bodyParser());
 

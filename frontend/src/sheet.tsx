@@ -21,6 +21,8 @@ class SheetData {
     constructor() {
         this.TG = this.CG = this.PG = this.OG = false;
     }
+    name: string;
+    id: string;
 
     TG: boolean;
     CG: boolean;
@@ -66,7 +68,12 @@ class SignUpForm extends Component<FormProps, any> {
             if (!err) {
                 console.log(values);
                 fetch(apiBaseUrl + 'submit', {
-                    method: 'POST'
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(values)
                 }).then( res => {;
                     message.success('提交成功！');
                 }).catch( err => {
@@ -109,7 +116,7 @@ class SignUpForm extends Component<FormProps, any> {
                 <Form onSubmit={this.handleSubmit}>
                     <FormItem label="姓名" {...formItemLayout}>
                         {
-                            getFieldDecorator('studentName', {
+                            getFieldDecorator('name', {
                                 rules: [
                                     { required: true, message: "请输入姓名" }
                                 ]
@@ -120,7 +127,7 @@ class SignUpForm extends Component<FormProps, any> {
                     </FormItem>
                     <FormItem label="学号" {...formItemLayout}>
                         {
-                            getFieldDecorator('studentId', {
+                            getFieldDecorator('id', {
                                 rules: [
                                     { required: true, message: "请输入学号" }
                                 ]
