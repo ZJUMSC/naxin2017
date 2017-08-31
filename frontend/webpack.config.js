@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const tsImportPluginFactory = require('ts-import-plugin');
 
@@ -79,6 +80,10 @@ module.exports = {
             inject: true,
             title: 'MSC@ZJU naxin 2017',
             template: 'public/index.html'
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            output: { comments: false },
+            compress: {warnings: false }
         })
     ]
 }

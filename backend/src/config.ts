@@ -1,5 +1,6 @@
 /*
- * config of app
+ * config of naxin2017 app backend
+ * for dev && test env.
  */
 
 const port: number = 8082;
