@@ -61,11 +61,15 @@ const submit = (data: SheetData) => {
 
 class SignUpForm extends Component<FormProps, any> {
     loadLocalStorage = () => {
-        console.log('load');
-        const { setFieldsValue } = this.props.form;
+        const values = JSON.parse(localStorage.getItem('formCache'));
+        this.props.form.setFieldsValue(values);
     }
     saveLocalStorage = () => {
-        console.log('save');
+        const values = this.props.form.getFieldsValue();
+        localStorage.setItem('formCache', JSON.stringify(values));
+    }
+    componentDidMount() {
+        this.loadLocalStorage();
     }
     handleSubmit = (e: any) => {
         e.preventDefault();
@@ -120,7 +124,7 @@ class SignUpForm extends Component<FormProps, any> {
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
-                    <FormItem label="姓名" {...formItemLayout}>
+                    <FormItem label="姓名" {...formItemLayout} hasFeedback>
                         {
                             getFieldDecorator('name', {
                                 rules: [
@@ -131,7 +135,7 @@ class SignUpForm extends Component<FormProps, any> {
                                 )
                         }
                     </FormItem>
-                    <FormItem label="学号" {...formItemLayout}>
+                    <FormItem label="学号" {...formItemLayout} hasFeedback>
                         {
                             getFieldDecorator('id', {
                                 rules: [
@@ -210,6 +214,56 @@ class SignUpForm extends Component<FormProps, any> {
                                         campusOptions.map(toSelectOption)
                                     }
                                 </Select>
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="专业或大类" {...formItemLayout} hasFeedback>
+                        {
+                            getFieldDecorator('major', {
+                                rules: [
+                                    { required: true, message: "请输入专业名称或者大类" }
+                                ]
+                            })(
+                                <Input />
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="电话号码" {...formItemLayout} hasFeedback>
+                        {
+                            getFieldDecorator('tel', {
+                                rules: [
+                                    { required: true, message: "请输入电话号码" }
+                                ]
+                            })(
+                                <Input />
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="邮箱" {...formItemLayout} hasFeedback>
+                        {
+                            getFieldDecorator('email', {
+                                rules: [
+                                    { required: true, message: "请输入邮箱" },
+                                    { type: 'email', message: "邮箱格式不正确" }
+                                ]
+                            })(
+                                <Input />
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="QQ" {...formItemLayout}>
+                        {
+                            getFieldDecorator('qq', {
+                            })(
+                                <Input />
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="自我介绍" {...formItemLayout}>
+                        {
+                            getFieldDecorator('description', {
+                            })(
+                                <Input.TextArea rows={12} />
                                 )
                         }
                     </FormItem>
