@@ -87,7 +87,11 @@ router.post('/all', async (ctx, next) => {
 
 router.post('/submit', async (ctx, next) => {
     const body = ctx.request.body;
+    const res = new SubmitResBody();
     console.log(body);
+
+    let success = true;
+
 
     if (body.group.some((v: any) => v === "TG")) {
         body.TG = true;
@@ -102,13 +106,23 @@ router.post('/submit', async (ctx, next) => {
         body.OG = true;
     }
 
-    await submitTable.create(body);
+    if (body.genderText === 'male') {
+        body.gender = false;
+    } else if (body.genderText === 'female') {
+        body.gender = true;
+    } else {
+        success = false;
+    }
 
-    const res = new SubmitResBody();
-    res.success = true;
-    ctx.status = 200;
+    res.success = success;
+    if (success) {
+        await submitTable.create(body);
+        ctx.status = 200;
+    } else {
+        ctx.status = 400;
+    }
+
     ctx.response.body = JSON.stringify(res);
-
     await next();
 });
 

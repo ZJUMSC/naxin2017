@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, Select, Icon, Row, Col, message } from 'antd';
+import { Layout, Button, Form, Input, Select, Radio, Icon, Row, Col, message } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
@@ -24,6 +24,7 @@ class SheetData {
     name: string;
     id: string;
 
+    group: [string];
     TG: boolean;
     CG: boolean;
     PG: boolean;
@@ -75,7 +76,6 @@ class SignUpForm extends Component<FormProps, any> {
                     },
                     body: JSON.stringify(values)
                 }).then(res => {
-                    ;
                     message.success('提交成功！');
                 }).catch(err => {
                     message.error('提交失败，可能为网络原因。无法解决的话请马上联系我们ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ');
@@ -150,6 +150,20 @@ class SignUpForm extends Component<FormProps, any> {
                                     <Select.Option value="PG">PG</Select.Option>
                                     <Select.Option value="OG">OG</Select.Option>
                                 </Select>
+                                )
+                        }
+                    </FormItem>
+                    <FormItem label="性别" {...formItemLayout}>
+                        {
+                            getFieldDecorator('genderText', {
+                                rules: [
+                                    { required: true, message: "请选择性别" }
+                                ]
+                            })(
+                                <Radio.Group>
+                                    <Radio.Button value="male">男</Radio.Button>
+                                    <Radio.Button value="female">女</Radio.Button>
+                                </Radio.Group>
                                 )
                         }
                     </FormItem>
