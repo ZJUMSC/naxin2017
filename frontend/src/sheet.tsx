@@ -139,7 +139,8 @@ class SignUpForm extends Component<FormProps, any> {
                         {
                             getFieldDecorator('id', {
                                 rules: [
-                                    { required: true, message: "请输入学号" }
+                                    { required: true, message: "请输入学号" },
+                                    { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
                                 ]
                             })(
                                 <Input />
@@ -232,7 +233,8 @@ class SignUpForm extends Component<FormProps, any> {
                         {
                             getFieldDecorator('tel', {
                                 rules: [
-                                    { required: true, message: "请输入电话号码" }
+                                    { required: true, message: "请输入电话号码" },
+                                    { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
                                 ]
                             })(
                                 <Input />
@@ -254,6 +256,9 @@ class SignUpForm extends Component<FormProps, any> {
                     <FormItem label="QQ" {...formItemLayout}>
                         {
                             getFieldDecorator('qq', {
+                                rules: [
+                                    { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
+                                ]
                             })(
                                 <Input />
                                 )

@@ -88,10 +88,8 @@ router.post('/all', async (ctx, next) => {
 router.post('/submit', async (ctx, next) => {
     const body = ctx.request.body;
     const res = new SubmitResBody();
-    console.log(body);
 
     let success = true;
-
 
     if (body.group.some((v: any) => v === "TG")) {
         body.TG = true;
@@ -127,7 +125,7 @@ router.post('/submit', async (ctx, next) => {
 });
 
 app.use(async (ctx, next) => {
-    console.log(`query received: ${ctx.method} ${ctx.url}`);
+    // console.log(`query received: ${ctx.method} ${ctx.url}`);
     await next();
 })
 
