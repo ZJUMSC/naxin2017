@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { Layout, Button, Form, Input, Icon, Row, Col, message } from 'antd';
+import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
 const FormItem = Form.Item;
@@ -64,7 +65,13 @@ class SignUpForm extends Component<FormProps, any> {
         this.props.form.validateFieldsAndScroll((err: any, values: SheetData) => {
             if (!err) {
                 console.log(values);
-                message.success('提交成功！');
+                fetch(apiBaseUrl + 'submit', {
+                    method: 'POST'
+                }).then( res => {;
+                    message.success('提交成功！');
+                }).catch( err => {
+                    message.error('提交失败，可能为网络原因。无法解决的话请马上联系我们ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ');
+                });
             } else {
                 console.log('error!');
                 console.log(err);

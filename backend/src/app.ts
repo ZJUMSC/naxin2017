@@ -7,7 +7,17 @@ const cors = require('koa2-cors');
 
 import { admin, port, mysql } from './config';
 
-const db = new Sequelize(mysql.databaseName, mysql.username, mysql.password);
+const db = new Sequelize(mysql.databaseName, mysql.username, mysql.password, {
+    host: 'localhost',
+    dialect: 'mysql'
+});
+
+db.authenticate().then(() => {
+    console.log('database authenticated successfully');
+}).catch(err => {
+    console.log('database connection and authentication error:');
+    console.log(err);
+});
 
 const submitTable = db.define('submit', {
     _id: {
@@ -30,6 +40,8 @@ const submitTable = db.define('submit', {
     email: Sequelize.STRING(50),
     qq: Sequelize.STRING(15),
     description: Sequelize.TEXT
+}, {
+    timestamps: false
 });
 
 interface ResBody {
@@ -39,6 +51,10 @@ interface ResBody {
 class AllResBody implements ResBody {
     success: boolean;
     body: any;
+}
+
+class SubmitResBody implements ResBody {
+    success: boolean;
 }
 
 const app = new Koa();
@@ -53,7 +69,7 @@ router.post('/all', async (ctx, next) => {
     const name = ctx.request.body.username || '';
     const pass = ctx.request.body.password || '';
 
-    let res = new AllResBody();
+    const res = new AllResBody();
     if (name === admin.username && pass === admin.password) {
         res.success = true;
         res.body = 'not implemented';
@@ -62,6 +78,18 @@ router.post('/all', async (ctx, next) => {
         res.body = 'authorization failed';
     }
 
+    ctx.status = 200;
+    ctx.response.body = JSON.stringify(res);
+
+    await next();
+});
+
+router.post('/submit', async (ctx, next) => {
+    const body = ctx.request.body;
+    console.log(body);
+
+    const res = new SubmitResBody();
+    res.success = true;
     ctx.status = 200;
     ctx.response.body = JSON.stringify(res);
 
