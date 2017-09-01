@@ -30,7 +30,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack -p",
     "dev": "webpack-dev-server --open"
   },
   "dependencies": {
