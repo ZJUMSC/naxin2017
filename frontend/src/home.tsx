@@ -21,6 +21,7 @@ class HomePanel extends Component {
                                     <li>纳新咨询可加入QQ群 <b>667813936</b></li>
                                     <li>报名相关问题及时与我们联系 yzyDavid@qq.com 或 QQ 1729462839</li>
                                     <li>建议使用电脑填写报名表</li>
+                                    <li style={{color: "red"}} >测试阶段 现在的提交无效</li>
                                     <li><br/><br/></li>
                                 </ul>
                                 <Row type="flex" justify="center" style={{ verticalAlign: "bottom" }}>

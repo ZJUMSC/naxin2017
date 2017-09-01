@@ -10,6 +10,7 @@ const description: string = 'MSC@ZJU 2017 natsu naxin frontend SPA';
 const ad = `
 若你在控制台输出中看到这句话，请在自我介绍当中高声喊出 El Psy Congroo!
 说出这句暗号，我们就能得知，你就是我们要找的人ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ
+一切都是命运石之门的选择！
 `;
 
 const ascii = String.raw`
@@ -31,7 +32,6 @@ const ascii = String.raw`
 const ping = () => fetch(config.apiBaseUrl + 'hello', {
     method: 'GET'
 }).then(res => console.log(res)).catch(err => console.log(err));
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
