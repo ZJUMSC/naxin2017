@@ -23,6 +23,7 @@ yarn build && yarn dev
 ## TODO
 - add photo upload
 - add dialog after press submit button
+- add more instructions
 
 ### ~FLAG: FINISH IT IN NEXT WEEK~
 
