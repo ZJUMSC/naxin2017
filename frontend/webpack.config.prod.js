@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const tsImportPluginFactory = require('ts-import-plugin');
 
 module.exports = {
-    //devtool: "cheap-module-source-map",
     entry: __dirname + '/src/index.tsx',
     output: {
         path: __dirname + '/build/',
@@ -11,7 +10,6 @@ module.exports = {
     },
     devServer: {
         contentBase: __dirname + '/build',
-        //historyApiFallback: true,
         inline: true
     },
     resolve: {
@@ -45,21 +43,14 @@ module.exports = {
                     },
                     {
                         loader: 'ts-loader',
-                        // options: {
-                        //     getCustomTransformers: () => ({
-                        //         before: [tsImportPluginFactory({ libraryName: "antd", style: "css" })]
-                        //     })
-                        // }
                     },
                 ],
-                //exclude: /node_modules/
             },
             {
                 test: /(\.jsx|\.js)$/,
                 use: {
                     loader: 'babel-loader'
                 },
-                //exclude: /node_modules/
             },
             {
                 test: /\.css$/,
@@ -78,7 +69,6 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            title: 'MSC@ZJU naxin 2017',
             template: 'public/index.html'
         }),
         new webpack.optimize.UglifyJsPlugin({

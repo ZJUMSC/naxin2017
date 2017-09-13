@@ -30,8 +30,8 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "build": "webpack -p",
-    "dev": "webpack-dev-server --open"
+    "build": "webpack -p --config webpack.config.prod.js",
+    "dev": "webpack-dev-server --open --config webpack.config.dev.js"
   },
   "dependencies": {
     "antd": "^2.12.8",
