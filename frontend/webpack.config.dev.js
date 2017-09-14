@@ -30,16 +30,6 @@ module.exports = {
                                 "react",
                                 "env"
                             ],
-                            "plugins": [
-                                [
-                                    "babel-plugin-import",
-                                    {
-                                        "libraryName": "antd",
-                                        "libraryDirectory": "lib",
-                                        "style": "css"
-                                    }
-                                ]
-                            ]
                         }
 
                     },

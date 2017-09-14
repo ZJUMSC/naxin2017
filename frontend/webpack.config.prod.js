@@ -21,23 +21,13 @@ module.exports = {
                 test: /(\.tsx|\.ts)$/,
                 use: [
                     {
-                        loader: 'babel-loader?cacheDirectory',
+                        loader: 'babel-loader',
                         options:
                         {
                             "presets": [
                                 "react",
                                 "env"
                             ],
-                            "plugins": [
-                                [
-                                    "babel-plugin-import",
-                                    {
-                                        "libraryName": "antd",
-                                        "libraryDirectory": "lib",
-                                        "style": "css"
-                                    }
-                                ]
-                            ]
                         }
 
                     },
@@ -74,6 +64,11 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             output: { comments: false },
             compress: {warnings: false }
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
         })
     ]
 }
