@@ -6,6 +6,7 @@ module.exports = {
     entry: __dirname + '/src/index.tsx',
     output: {
         path: __dirname + '/build/',
+        publicPath: '/',
         filename: 'bundle.js'
     },
     devServer: {
@@ -53,6 +54,12 @@ module.exports = {
                         },
                     },
                 ]
+            },
+            {
+                test: /\.png$/,
+                use: {
+                    loader: 'url-loader?limit=10000&name=img/[name].[ext]'
+                }
             }
         ]
     },

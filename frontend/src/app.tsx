@@ -6,6 +6,8 @@ import { Layout, Button, message } from 'antd';
 import Sheet from './sheet';
 import HomePanel from './home';
 
+import './ms.png';
+
 const { Header, Content, Footer, Sider } = Layout;
 
 class App extends Component {
@@ -16,7 +18,8 @@ class App extends Component {
                 <Layout>
                     <Header style={{ width: "100%" }}>
                         <div>
-                            <h1 style={{ color: "#fff", whiteSpace: "nowrap" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
+                            <img src={require('./ms.png')} height="45px" />
+                            <h1 style={{ color: "#fff", whiteSpace: "nowrap", display: "inline" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
                         </div>
                     </Header>
                     <Content style={{ padding: "0 20px", minHeight: "300px" }}>
