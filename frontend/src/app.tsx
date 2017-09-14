@@ -10,6 +10,10 @@ import './ms.png';
 
 const { Header, Content, Footer, Sider } = Layout;
 
+function isMobile() {
+    return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+}
+
 class App extends Component {
 
     render() {
@@ -19,10 +23,13 @@ class App extends Component {
                     <Header style={{ width: "100%" }}>
                         <div>
                             <img src={require('./ms.png')} height="45px" />
-                            <h1 style={{ color: "#fff", whiteSpace: "nowrap", display: "inline" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
+                            {
+                                isMobile() ? <div/> :
+                                    <h1 style={{ color: "#fff", whiteSpace: "nowrap", display: "inline", lineHeight: "64px" }}>浙江大学 微软学生俱乐部 2017纳新网站</h1>
+                            }
                         </div>
                     </Header>
-                    <Content style={{ padding: "0 20px", minHeight: "300px" }}>
+                    <Content style={{ padding: "0", minHeight: "300px" }}>
                         <Router>
                             <Switch>
                                 <Route exact path="/" render={() => <Redirect to="/home" />} />
