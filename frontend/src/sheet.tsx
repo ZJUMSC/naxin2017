@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal, Popconfirm } from 'antd';
+import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal, Popconfirm, BackTop } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
@@ -193,7 +193,8 @@ class SignUpForm extends Component<FormProps, any> {
                             getFieldDecorator('age', {
                                 rules: [
                                     { required: true, message: "请输入年龄" }
-                                ]
+                                ],
+                                initialValue: 18
                             })(
                                 <InputNumber min={1} max={100} />
                                 )
@@ -310,6 +311,7 @@ class Sheet extends Component<any, SheetState> {
                 <h1 style={{ textAlign: "center" }}>微软俱乐部2017秋季纳新报名表</h1>
                 <p><br /></p>
                 <WrappedForm />
+                <BackTop visibilityHeight={200}/>
             </div>
         );
     }
