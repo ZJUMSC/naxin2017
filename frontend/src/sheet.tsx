@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal, Popconfirm, BackTop } from 'antd';
+import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal, Popconfirm, BackTop, Tooltip } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
@@ -154,11 +154,11 @@ class SignUpForm extends Component<FormProps, any> {
                                     { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
                                 ]
                             })(
-                                <Input prefix={<Icon type="contacts" style={{ fontSize: 13 }} />} />
+                                <Input prefix={<Icon type="contacts" style={{ fontSize: 13 }} />} placeholder="3170100000" />
                                 )
                         }
                     </FormItem>
-                    <FormItem label="Group" {...formItemLayout}>
+                    <FormItem label={<Tooltip title="TechGroup CultureGroup PublicGroup OperationGroup 具体信息请询问首页的机器人~">Group</Tooltip>} {...formItemLayout}>
                         {
                             getFieldDecorator('group', {
                                 rules: [
@@ -182,8 +182,8 @@ class SignUpForm extends Component<FormProps, any> {
                                 ]
                             })(
                                 <Radio.Group>
-                                    <Radio.Button value="male"><div><Icon type="man"/>男</div></Radio.Button>
-                                    <Radio.Button value="female"><div><Icon type="woman"/>女</div></Radio.Button>
+                                    <Radio.Button value="male"><div><Icon type="man" />男</div></Radio.Button>
+                                    <Radio.Button value="female"><div><Icon type="woman" />女</div></Radio.Button>
                                 </Radio.Group>
                                 )
                         }
@@ -280,7 +280,7 @@ class SignUpForm extends Component<FormProps, any> {
                         {
                             getFieldDecorator('description', {
                             })(
-                                <Input.TextArea rows={12} />
+                                <Input.TextArea rows={12} placeholder="可以随便说点什么，介绍自己的方方面面" />
                                 )
                         }
                     </FormItem>
@@ -311,7 +311,7 @@ class Sheet extends Component<any, SheetState> {
                 <h1 style={{ textAlign: "center" }}>微软俱乐部2017秋季纳新报名表</h1>
                 <p><br /></p>
                 <WrappedForm />
-                <BackTop visibilityHeight={200}/>
+                <BackTop visibilityHeight={200} />
             </div>
         );
     }
