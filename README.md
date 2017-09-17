@@ -9,7 +9,7 @@
 ## Build
 - node.js 8.4
 - yarn
-do this in both frontend/ and backend/
+  do this in both frontend/ and backend/
 ```bash
 yarn install
 yarn build && yarn dev
@@ -20,10 +20,12 @@ yarn build && yarn dev
 - fix babel-import-plugin to minify antd pack
 - use prod version of react.js
 
-## TODO
-- add photo upload
-- add dialog after press submit button
-- add more instructions
+## TO-DO
+- [ ] add photo upload
+
+- [x] add dialog after press submit button
+
+- [ ] add more instructions
 
 ### ~FLAG: FINISH IT IN NEXT WEEK~
 
