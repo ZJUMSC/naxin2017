@@ -2,7 +2,7 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal } from 'antd';
+import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal, Popconfirm } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
@@ -182,8 +182,8 @@ class SignUpForm extends Component<FormProps, any> {
                                 ]
                             })(
                                 <Radio.Group>
-                                    <Radio.Button value="male">男</Radio.Button>
-                                    <Radio.Button value="female">女</Radio.Button>
+                                    <Radio.Button value="male"><div><Icon type="man"/>男</div></Radio.Button>
+                                    <Radio.Button value="female"><div><Icon type="woman"/>女</div></Radio.Button>
                                 </Radio.Group>
                                 )
                         }
@@ -286,6 +286,11 @@ class SignUpForm extends Component<FormProps, any> {
 
                     <FormItem {...tailFormItemLayout}>
                         <Button icon="copy" type="primary" htmlType="submit">提交</Button>
+                        <Button icon="save" size="large" style={{ margin: "20px" }} onClick={() => { this.saveLocalStorage(); message.success('草稿已保存') }}>保存草稿</Button>
+                        <Popconfirm title="确认要清空表单内容么？" onConfirm={() => { this.props.form.resetFields(); message.success('表单内容已清空') }}>
+                            <Button icon="reload" size="large" style={{ margin: "20px" }}>清空内容</Button>
+                        </Popconfirm>
+                        <Link to="/home"><Button icon="rollback" size="large" style={{ margin: "20px 0px" }}>返回上一页</Button></Link>
                     </FormItem>
                 </Form>
             </div>

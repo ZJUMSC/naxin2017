@@ -16,7 +16,6 @@ yarn build && yarn dev
 ```
 
 ## known issues
-- split webpack config to dev mode and prod mode
 - fix babel-import-plugin to minify antd pack
 - use prod version of react.js
 
