@@ -2,11 +2,12 @@ import { Component } from 'react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message } from 'antd';
+import { Layout, Button, Form, Input, InputNumber, Select, Radio, Icon, Row, Col, message, Modal } from 'antd';
 import { apiBaseUrl } from './config';
 
 const { Content } = Layout;
 const FormItem = Form.Item;
+const { confirm } = Modal;
 
 const gradeOptions = ['大一', '大二', '大三', '大四', '研究生', '博士生', '其他'];
 const campusOptions = ['紫金港', '玉泉', '西溪', '华家池', '之江', '其他'];
@@ -55,10 +56,6 @@ interface FormProps {
     form: any;
 }
 
-const submit = (data: SheetData) => {
-
-}
-
 class SignUpForm extends Component<FormProps, any> {
     loadLocalStorage = () => {
         const values = JSON.parse(localStorage.getItem('formCache'));
@@ -74,28 +71,42 @@ class SignUpForm extends Component<FormProps, any> {
     handleSubmit = (e: any) => {
         e.preventDefault();
         this.saveLocalStorage();
-        this.props.form.validateFieldsAndScroll((err: any, values: SheetData) => {
-            if (!err) {
-                console.log(values);
-                fetch(apiBaseUrl + 'submit', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(values)
-                }).then(res => {
-                    message.success('提交成功！');
-                }).catch(err => {
-                    message.error('提交失败，可能为网络原因。无法解决的话请马上联系我们ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ');
-                });
-            } else {
-                console.log('error!');
-                console.log(err);
-                console.log(values);
-                message.error('填写不正确，请按照提示修改');
-            }
-        })
+
+        const formProps = this.props.form;
+
+        confirm({
+            title: '提交报名表',
+            content: String.raw`
+            您填写的表格已经保存在浏览器中，以后可以修改后覆盖提交。
+            点击 OK 进行提交。
+            `,
+            onOk() {
+                return new Promise((resolve, reject) => {
+                    formProps.validateFieldsAndScroll((err: any, values: SheetData) => {
+                        if (!err) {
+                            fetch(apiBaseUrl + 'submit', {
+                                method: 'POST',
+                                headers: {
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(values)
+                            }).then(res => {
+                                message.success('提交成功！');
+                                resolve(42);
+                            }).catch(err => {
+                                message.error('提交失败，可能为网络原因。无法解决的话请马上联系我们ヽ(*ﾟдﾟ)ノｶｲﾊﾞｰ');
+                                reject('network or fetch error!');
+                            });
+                        } else {
+                            message.error('填写不正确，请按照提示修改');
+                            reject('validation error!');
+                        }
+                    })
+                }).catch((err: any) => console.log(err));
+            },
+            onCancel() { }
+        });
     }
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -131,7 +142,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { required: true, message: "请输入姓名" }
                                 ]
                             })(
-                                <Input prefix={<Icon type="user" style={{fontSize: 13}} />} />
+                                <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} />
                                 )
                         }
                     </FormItem>
@@ -143,7 +154,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
                                 ]
                             })(
-                                <Input prefix={<Icon type="contacts" style={{fontSize: 13}} />} />
+                                <Input prefix={<Icon type="contacts" style={{ fontSize: 13 }} />} />
                                 )
                         }
                     </FormItem>
