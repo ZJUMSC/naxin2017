@@ -22,9 +22,8 @@ class HomePanel extends Component {
                                     <li>报名相关问题及时与我们联系 yzyDavid@qq.com 或 QQ 1729462839</li>
                                     <li>俱乐部分为TG CG PG OG四个组别，试试问机器人『俱乐部的groups』</li>
                                     <li>建议使用电脑填写报名表</li>
-                                    <li style={{ color: "#6af" }} >9月23日开始接受报名</li>
-                                    <li style={{ color: "#6af" }} >暂定9月29日截止报名</li>
-                                    <li style={{ color: "red" }} >测试阶段 现在的提交无效</li>
+                                    <li style={{ color: "#6af" }} >9月23日 0:00 开始接受报名</li>
+                                    <li style={{ color: "#6af" }} >暂定9月29日 24:00 截止报名</li>
                                     <li><br /><br /></li>
                                 </ul>
                                 <Row type="flex" justify="center" style={{ verticalAlign: "bottom" }}>

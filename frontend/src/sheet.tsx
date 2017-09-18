@@ -158,7 +158,7 @@ class SignUpForm extends Component<FormProps, any> {
                                 )
                         }
                     </FormItem>
-                    <FormItem label={<Tooltip title="TechGroup CultureGroup PublicGroup OperationGroup 具体信息请询问首页的机器人~">Group</Tooltip>} {...formItemLayout}>
+                    <FormItem label={<Tooltip title="TechGroup CultureGroup PublicGroup OperationGroup 具体信息请询问首页的机器人~"><span>Group </span><Icon type="question-circle-o" /></Tooltip>} {...formItemLayout}>
                         {
                             getFieldDecorator('group', {
                                 rules: [
@@ -237,7 +237,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { required: true, message: "请输入专业名称或者大类" }
                                 ]
                             })(
-                                <Input />
+                                <Input placeholder="例如：工科试验班(信息)" />
                                 )
                         }
                     </FormItem>
@@ -249,7 +249,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { pattern: /^[0-9]+$/, message: "混进去了数字以外的东西呀" }
                                 ]
                             })(
-                                <Input />
+                                <Input prefix={<Icon type="mobile" style={{ fontSize: 13 }} />} placeholder="我们能够使用电话或者短信联系到你的号码即可" />
                                 )
                         }
                     </FormItem>
@@ -261,7 +261,7 @@ class SignUpForm extends Component<FormProps, any> {
                                     { type: 'email', message: "邮箱格式不正确" }
                                 ]
                             })(
-                                <Input />
+                                <Input prefix={<Icon type="mail" style={{ fontSize: 13 }} />} />
                                 )
                         }
                     </FormItem>
