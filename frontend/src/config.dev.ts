@@ -3,4 +3,4 @@
  * for dev && test env.
  */
 
-export const apiBaseUrl = "http://api.yuzhenyun.me/"
+export const apiBaseUrl = "http://localhost:8082/"
